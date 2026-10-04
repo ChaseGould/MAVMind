@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mavmind-vehicle"
+version = "0.1.0"
+description = "MAVMind vehicle service: telemetry sources, store, MCP servers, gated command path"
+requires-python = ">=3.11"
+dependencies = [
+  "pymavlink>=2.4.40",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "mcp>=2.3,<3",
+  "pyyaml>=6",
+  "jsonschema>=4.20",
+]
+
+[project.optional-dependencies]
+# rclpy and mavros_msgs come from the ROS 2 install (apt / rosdep), not PyPI.
+ros = []
+serial = ["pyserial>=3.5"]
+
+[project.scripts]
+mavmind-vehicle = "mavmind_vehicle.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["mavmind_vehicle*"]

@@ -1,0 +1,12 @@
+name: sitl
+description: ArduPilot SITL over UDP (sim_vehicle.py --out=udp:127.0.0.1:14550). Windows or WSL.
+source:
+  type: mavlink
+  url: udpin:0.0.0.0:14550
+  stream_rate_hz: 10
+  message_rates:
+    ATTITUDE: 20
+    VFR_HUD: 10
+service:
+  host: 127.0.0.1
+  port: 8700

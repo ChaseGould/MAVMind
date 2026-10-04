@@ -1,0 +1,12 @@
+name: onboard
+description: Vehicle service on the companion computer next to MAVROS; laptop connects over wifi/LTE.
+# On the laptop, point the desktop UI and the agent at this host:
+#   MAVMIND_VEHICLE_URL=http://<companion-ip>:8700
+source:
+  type: mavros
+  namespace: /mavros
+  raw_topic: /uas1/mavlink_source
+service:
+  host: 0.0.0.0       # listen on the network (MCP Host-header checks are off for non-local binds);
+                      # restrict access with a firewall or VPN
+  port: 8700

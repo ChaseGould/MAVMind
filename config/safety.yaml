@@ -1,0 +1,51 @@
+# Limits for LLM-proposed missions. The validator (services/vehicle/mavmind_vehicle/validator)
+# is deterministic code; every limit it enforces lives here. Changing a limit never needs code.
+
+command_whitelist:
+  - NAV_TAKEOFF
+  - NAV_WAYPOINT
+  - NAV_LOITER_TIME
+  - NAV_LAND
+  - NAV_RETURN_TO_LAUNCH
+  - DO_CHANGE_SPEED
+  - DO_SET_SERVO
+  - DO_GRIPPER
+  - DO_DIGICAM_CONTROL
+
+max_items: 100
+
+altitude:            # metres relative to home
+  min_m: 5
+  max_m: 120
+
+# Every waypoint and every leg between them must stay inside this polygon.
+# Default: a box around the ArduPilot SITL home (CMAC, Canberra). Replace for your field.
+geofence:
+  enabled: true
+  polygon:           # [lat, lon], degrees
+    - [-35.3560, 149.1560]
+    - [-35.3560, 149.1750]
+    - [-35.3710, 149.1750]
+    - [-35.3710, 149.1560]
+
+max_distance_from_home_m: 800
+max_leg_length_m: 600
+
+speed:
+  max_mps: 15        # DO_CHANGE_SPEED limit
+
+servo:
+  allowed_channels: [9, 10, 11, 12, 13, 14]
+
+# Flight time estimate vs battery. Estimate = legs / cruise + climbs/descents + loiters + margin.
+flight_time:
+  cruise_speed_mps: 8          # used until a DO_CHANGE_SPEED item changes it
+  climb_rate_mps: 2.5
+  descent_rate_mps: 1.0
+  endurance_full_battery_s: 1080   # hover/cruise endurance on a full pack (18 min)
+  reserve_pct: 25                  # battery that must remain on landing
+  overhead_pct: 15                 # margin for wind, turns, acceleration
+
+structure:
+  first_nav_must_be_takeoff: true  # copter: a mission that starts on the ground must take off
+  must_end_with_return_or_land: true

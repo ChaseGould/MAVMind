@@ -1,0 +1,13 @@
+name: ground-wsl
+description: SiK radio attached to WSL with usbipd, MAVROS (ROS 2) in WSL, mirrored networking.
+# Data is limited to the SiK stream rates (SR1_* params on the vehicle).
+# Keep Mission Planner connected with MAVROS gcs_url, e.g. gcs_url:=udp://@<windows-ip>:14550
+source:
+  type: mavros
+  namespace: /mavros
+  # Raw MAVLink passthrough from the FCU. MAVROS 2 publishes mavros_msgs/Mavlink on
+  # /uas1/mavlink_source; verify with `ros2 topic list` for your installed MAVROS version.
+  raw_topic: /uas1/mavlink_source
+service:
+  host: 127.0.0.1     # with WSL mirrored networking, Windows reaches this at 127.0.0.1
+  port: 8700

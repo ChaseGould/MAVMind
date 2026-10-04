@@ -1,0 +1,16 @@
+# Agent service settings. The API key is never stored here: set ANTHROPIC_API_KEY or store it in the
+# OS keychain (service "mavmind", user "anthropic_api_key"); only the agent service reads it.
+model: claude-opus-5-5
+effort: medium          # low | medium | high | xhigh | max
+max_tokens: 16000
+fallbacks: default      # server-side refusal fallback; set to null to disable
+max_tool_rounds: 25
+
+host: 127.0.0.1
+port: 8701
+
+# Where the vehicle service runs. Override with MAVMIND_VEHICLE_URL (e.g. the companion computer).
+vehicle_url: http://127.0.0.1:8700
+
+cors_origins: ["*"]
+audit_log: logs/agent_audit.jsonl

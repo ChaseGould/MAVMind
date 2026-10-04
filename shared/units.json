@@ -1,0 +1,136 @@
+{
+  "_doc": "Unit conversion table for MAVLink fields. For each message, raw field -> {name, scale, invalid}. The converted value is raw * scale under the new name; raw values listed in `invalid` become null. Fields not listed pass through unchanged. 57.29577951308232 converts radians to degrees.",
+  "ATTITUDE": {
+    "time_boot_ms": {"name": "time_boot_s", "scale": 0.001},
+    "roll": {"name": "roll_deg", "scale": 57.29577951308232},
+    "pitch": {"name": "pitch_deg", "scale": 57.29577951308232},
+    "yaw": {"name": "yaw_deg", "scale": 57.29577951308232},
+    "rollspeed": {"name": "rollspeed_dps", "scale": 57.29577951308232},
+    "pitchspeed": {"name": "pitchspeed_dps", "scale": 57.29577951308232},
+    "yawspeed": {"name": "yawspeed_dps", "scale": 57.29577951308232}
+  },
+  "AHRS2": {
+    "roll": {"name": "roll_deg", "scale": 57.29577951308232},
+    "pitch": {"name": "pitch_deg", "scale": 57.29577951308232},
+    "yaw": {"name": "yaw_deg", "scale": 57.29577951308232},
+    "altitude": {"name": "alt_msl_m", "scale": 1},
+    "lat": {"name": "lat_deg", "scale": 1e-7},
+    "lng": {"name": "lon_deg", "scale": 1e-7}
+  },
+  "GLOBAL_POSITION_INT": {
+    "time_boot_ms": {"name": "time_boot_s", "scale": 0.001},
+    "lat": {"name": "lat_deg", "scale": 1e-7},
+    "lon": {"name": "lon_deg", "scale": 1e-7},
+    "alt": {"name": "alt_msl_m", "scale": 0.001},
+    "relative_alt": {"name": "alt_rel_m", "scale": 0.001},
+    "vx": {"name": "vx_mps", "scale": 0.01},
+    "vy": {"name": "vy_mps", "scale": 0.01},
+    "vz": {"name": "vz_mps", "scale": 0.01},
+    "hdg": {"name": "heading_deg", "scale": 0.01, "invalid": [65535]}
+  },
+  "GPS_RAW_INT": {
+    "time_usec": {"name": "time_s", "scale": 1e-6},
+    "lat": {"name": "lat_deg", "scale": 1e-7},
+    "lon": {"name": "lon_deg", "scale": 1e-7},
+    "alt": {"name": "alt_msl_m", "scale": 0.001},
+    "eph": {"name": "hdop", "scale": 0.01, "invalid": [65535]},
+    "epv": {"name": "vdop", "scale": 0.01, "invalid": [65535]},
+    "vel": {"name": "groundspeed_mps", "scale": 0.01, "invalid": [65535]},
+    "cog": {"name": "cog_deg", "scale": 0.01, "invalid": [65535]},
+    "satellites_visible": {"name": "satellites_visible", "scale": 1, "invalid": [255]},
+    "h_acc": {"name": "h_acc_m", "scale": 0.001},
+    "v_acc": {"name": "v_acc_m", "scale": 0.001}
+  },
+  "VFR_HUD": {
+    "airspeed": {"name": "airspeed_mps", "scale": 1},
+    "groundspeed": {"name": "groundspeed_mps", "scale": 1},
+    "alt": {"name": "alt_msl_m", "scale": 1},
+    "climb": {"name": "climb_mps", "scale": 1},
+    "heading": {"name": "heading_deg", "scale": 1},
+    "throttle": {"name": "throttle_pct", "scale": 1}
+  },
+  "SYS_STATUS": {
+    "voltage_battery": {"name": "voltage_battery_v", "scale": 0.001, "invalid": [65535]},
+    "current_battery": {"name": "current_battery_a", "scale": 0.01, "invalid": [-1]},
+    "battery_remaining": {"name": "battery_remaining_pct", "scale": 1, "invalid": [-1]},
+    "load": {"name": "load_pct", "scale": 0.1},
+    "drop_rate_comm": {"name": "drop_rate_comm_pct", "scale": 0.01}
+  },
+  "BATTERY_STATUS": {
+    "temperature": {"name": "temperature_c", "scale": 0.01, "invalid": [32767]},
+    "voltages": {"name": "voltages_v", "scale": 0.001, "invalid": [65535, 65534]},
+    "current_battery": {"name": "current_a", "scale": 0.01, "invalid": [-1]},
+    "current_consumed": {"name": "current_consumed_mah", "scale": 1, "invalid": [-1]},
+    "energy_consumed": {"name": "energy_consumed_j", "scale": 100, "invalid": [-1]},
+    "battery_remaining": {"name": "battery_remaining_pct", "scale": 1, "invalid": [-1]},
+    "time_remaining": {"name": "time_remaining_s", "scale": 1, "invalid": [0]}
+  },
+  "HOME_POSITION": {
+    "latitude": {"name": "lat_deg", "scale": 1e-7},
+    "longitude": {"name": "lon_deg", "scale": 1e-7},
+    "altitude": {"name": "alt_msl_m", "scale": 0.001},
+    "x": {"name": "x_m", "scale": 1},
+    "y": {"name": "y_m", "scale": 1},
+    "z": {"name": "z_m", "scale": 1}
+  },
+  "NAV_CONTROLLER_OUTPUT": {
+    "nav_roll": {"name": "nav_roll_deg", "scale": 1},
+    "nav_pitch": {"name": "nav_pitch_deg", "scale": 1},
+    "nav_bearing": {"name": "nav_bearing_deg", "scale": 1},
+    "target_bearing": {"name": "target_bearing_deg", "scale": 1},
+    "wp_dist": {"name": "wp_dist_m", "scale": 1},
+    "alt_error": {"name": "alt_error_m", "scale": 1},
+    "aspd_error": {"name": "aspd_error_mps", "scale": 1},
+    "xtrack_error": {"name": "xtrack_error_m", "scale": 1}
+  },
+  "MISSION_ITEM_INT": {
+    "x": {"name": "lat_deg", "scale": 1e-7},
+    "y": {"name": "lon_deg", "scale": 1e-7},
+    "z": {"name": "alt_m", "scale": 1}
+  },
+  "SCALED_PRESSURE": {
+    "time_boot_ms": {"name": "time_boot_s", "scale": 0.001},
+    "press_abs": {"name": "press_abs_hpa", "scale": 1},
+    "press_diff": {"name": "press_diff_hpa", "scale": 1},
+    "temperature": {"name": "temperature_c", "scale": 0.01}
+  },
+  "WIND": {
+    "direction": {"name": "direction_deg", "scale": 1},
+    "speed": {"name": "speed_mps", "scale": 1},
+    "speed_z": {"name": "speed_z_mps", "scale": 1}
+  },
+  "VIBRATION": {
+    "time_usec": {"name": "time_s", "scale": 1e-6},
+    "vibration_x": {"name": "vibration_x_mss", "scale": 1},
+    "vibration_y": {"name": "vibration_y_mss", "scale": 1},
+    "vibration_z": {"name": "vibration_z_mss", "scale": 1}
+  },
+  "POWER_STATUS": {
+    "Vcc": {"name": "vcc_v", "scale": 0.001},
+    "Vservo": {"name": "vservo_v", "scale": 0.001}
+  },
+  "SYSTEM_TIME": {
+    "time_unix_usec": {"name": "time_unix_s", "scale": 1e-6},
+    "time_boot_ms": {"name": "time_boot_s", "scale": 0.001}
+  },
+  "TERRAIN_REPORT": {
+    "lat": {"name": "lat_deg", "scale": 1e-7},
+    "lon": {"name": "lon_deg", "scale": 1e-7},
+    "terrain_height": {"name": "terrain_height_m", "scale": 1},
+    "current_height": {"name": "current_height_m", "scale": 1}
+  },
+  "RANGEFINDER": {
+    "distance": {"name": "distance_m", "scale": 1},
+    "voltage": {"name": "voltage_v", "scale": 1}
+  },
+  "DISTANCE_SENSOR": {
+    "current_distance": {"name": "current_distance_m", "scale": 0.01},
+    "min_distance": {"name": "min_distance_m", "scale": 0.01},
+    "max_distance": {"name": "max_distance_m", "scale": 0.01}
+  },
+  "ESC_TELEMETRY_1_TO_4": {
+    "voltage": {"name": "voltage_v", "scale": 0.01},
+    "current": {"name": "current_a", "scale": 0.01},
+    "totalcurrent": {"name": "totalcurrent_mah", "scale": 1}
+  }
+}

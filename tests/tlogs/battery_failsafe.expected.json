@@ -1,0 +1,267 @@
+{
+  "file": "battery_failsafe.tlog",
+  "start_time": 1790000000.0,
+  "duration_s": 165.42,
+  "home": {
+    "lat": -35.363262,
+    "lon": 149.165237,
+    "alt_msl_m": 584.09
+  },
+  "vehicle": {
+    "sysid": 1,
+    "type": "copter",
+    "autopilot": "ArduPilot",
+    "firmware": "ArduCopter V4.5.7"
+  },
+  "nominal_rates_hz": {
+    "HEARTBEAT": 1,
+    "ATTITUDE": 10,
+    "GLOBAL_POSITION_INT": 5,
+    "GPS_RAW_INT": 5,
+    "VFR_HUD": 4.17,
+    "SYS_STATUS": 2,
+    "NAV_CONTROLLER_OUTPUT": 2,
+    "SERVO_OUTPUT_RAW": 2,
+    "RC_CHANNELS": 2,
+    "AHRS2": 2,
+    "MISSION_CURRENT": 1,
+    "RADIO_STATUS": 1,
+    "EKF_STATUS_REPORT": 1,
+    "VIBRATION": 1,
+    "SYSTEM_TIME": 1,
+    "SCALED_PRESSURE": 1,
+    "POWER_STATUS": 1,
+    "WIND": 1,
+    "BATTERY_STATUS": 1,
+    "HOME_POSITION": 0.1
+  },
+  "message_counts": {
+    "AHRS2": 324,
+    "ATTITUDE": 1637,
+    "BATTERY_STATUS": 162,
+    "EKF_STATUS_REPORT": 164,
+    "GLOBAL_POSITION_INT": 820,
+    "GPS_RAW_INT": 818,
+    "HEARTBEAT": 330,
+    "HOME_POSITION": 16,
+    "MISSION_ACK": 1,
+    "MISSION_COUNT": 1,
+    "MISSION_CURRENT": 163,
+    "MISSION_ITEM_INT": 9,
+    "MISSION_ITEM_REACHED": 4,
+    "MISSION_REQUEST_INT": 9,
+    "MISSION_REQUEST_LIST": 1,
+    "NAV_CONTROLLER_OUTPUT": 329,
+    "PARAM_VALUE": 30,
+    "POWER_STATUS": 165,
+    "RADIO_STATUS": 163,
+    "RC_CHANNELS": 327,
+    "SCALED_PRESSURE": 163,
+    "SERVO_OUTPUT_RAW": 325,
+    "STATUSTEXT": 17,
+    "SYSTEM_TIME": 163,
+    "SYS_STATUS": 324,
+    "VFR_HUD": 684,
+    "VIBRATION": 162,
+    "WIND": 165
+  },
+  "dropped_vehicle_packets": 74,
+  "params": {
+    "BATT_MONITOR": 4.0,
+    "BATT_CAPACITY": 3000.0,
+    "BATT_LOW_VOLT": 10.5,
+    "BATT_CRT_VOLT": 10.0,
+    "BATT_LOW_MAH": 0.0,
+    "BATT_CRT_MAH": 0.0,
+    "BATT_FS_LOW_ACT": 2.0,
+    "BATT_FS_CRT_ACT": 1.0,
+    "BATT_LOW_TIMER": 10.0,
+    "FS_THR_ENABLE": 1.0,
+    "FS_THR_VALUE": 975.0,
+    "FS_GCS_ENABLE": 0.0,
+    "FS_EKF_ACTION": 1.0,
+    "FS_EKF_THRESH": 0.8,
+    "FS_CRASH_CHECK": 1.0,
+    "FENCE_ENABLE": 1.0,
+    "FENCE_TYPE": 7.0,
+    "FENCE_ACTION": 1.0,
+    "FENCE_ALT_MAX": 120.0,
+    "FENCE_RADIUS": 400.0,
+    "RTL_ALT": 1500.0,
+    "RTL_SPEED": 0.0,
+    "WPNAV_SPEED": 800.0,
+    "WPNAV_SPEED_UP": 250.0,
+    "LAND_SPEED": 100.0,
+    "SR1_POSITION": 5.0,
+    "SR1_EXTRA1": 10.0,
+    "SR1_EXTRA2": 4.0,
+    "SR1_EXTRA3": 2.0,
+    "SR1_EXT_STAT": 2.0
+  },
+  "mission": [
+    {
+      "seq": 0,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.363262,
+      "lon": 149.165237,
+      "alt": 584.09
+    },
+    {
+      "seq": 1,
+      "command": "NAV_TAKEOFF",
+      "lat": 0.0,
+      "lon": 0.0,
+      "alt": 30.0
+    },
+    {
+      "seq": 2,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.36191301945441,
+      "lon": 149.165237,
+      "alt": 30.0
+    },
+    {
+      "seq": 3,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.36191301945441,
+      "lon": 149.16689117792282,
+      "alt": 30.0
+    },
+    {
+      "seq": 4,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.363262,
+      "lon": 149.16689117792282,
+      "alt": 30.0
+    },
+    {
+      "seq": 5,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.364610980545585,
+      "lon": 149.16689117792282,
+      "alt": 30.0
+    },
+    {
+      "seq": 6,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.364610980545585,
+      "lon": 149.165237,
+      "alt": 30.0
+    },
+    {
+      "seq": 7,
+      "command": "NAV_WAYPOINT",
+      "lat": -35.364610980545585,
+      "lon": 149.16358282207716,
+      "alt": 30.0
+    },
+    {
+      "seq": 8,
+      "command": "NAV_RETURN_TO_LAUNCH",
+      "lat": 0.0,
+      "lon": 0.0,
+      "alt": 0.0
+    }
+  ],
+  "facts": {
+    "arm_t": 10.0,
+    "auto_t": 12.0,
+    "failsafe_t": 105.0,
+    "failsafe_voltage_v": 10.48,
+    "failsafe_consumed_mah": 1039,
+    "failsafe_remaining_pct": 65,
+    "failsafe_seq": 6,
+    "failsafe_alt_rel_m": 30.0,
+    "failsafe_dist_home_m": 179.7,
+    "failsafe_mode_from": "AUTO",
+    "rtl_t": 105.1,
+    "disarm_t": 159.42
+  },
+  "statustext": [
+    {
+      "t": 0.5,
+      "severity": 6,
+      "text": "ArduCopter V4.5.7 (2a3dc4b7)"
+    },
+    {
+      "t": 0.6,
+      "severity": 6,
+      "text": "Frame: QUAD/X"
+    },
+    {
+      "t": 3.0,
+      "severity": 6,
+      "text": "EKF3 IMU0 is using GPS"
+    },
+    {
+      "t": 10.0,
+      "severity": 6,
+      "text": "Arming motors"
+    },
+    {
+      "t": 12.0,
+      "severity": 6,
+      "text": "Mission: 1 Takeoff"
+    },
+    {
+      "t": 23.98,
+      "severity": 6,
+      "text": "Mission: 2 WP"
+    },
+    {
+      "t": 42.64,
+      "severity": 6,
+      "text": "Reached command #2"
+    },
+    {
+      "t": 42.64,
+      "severity": 6,
+      "text": "Mission: 3 WP"
+    },
+    {
+      "t": 61.3,
+      "severity": 6,
+      "text": "Reached command #3"
+    },
+    {
+      "t": 61.3,
+      "severity": 6,
+      "text": "Mission: 4 WP"
+    },
+    {
+      "t": 79.96,
+      "severity": 6,
+      "text": "Reached command #4"
+    },
+    {
+      "t": 79.96,
+      "severity": 6,
+      "text": "Mission: 5 WP"
+    },
+    {
+      "t": 98.7,
+      "severity": 6,
+      "text": "Reached command #5"
+    },
+    {
+      "t": 98.7,
+      "severity": 6,
+      "text": "Mission: 6 WP"
+    },
+    {
+      "t": 105.0,
+      "severity": 2,
+      "text": "Battery 1 is low 10.48V used 1039 mAh"
+    },
+    {
+      "t": 157.42,
+      "severity": 6,
+      "text": "Land complete"
+    },
+    {
+      "t": 159.42,
+      "severity": 6,
+      "text": "Disarming motors"
+    }
+  ]
+}

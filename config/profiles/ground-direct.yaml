@@ -1,0 +1,14 @@
+name: ground-direct
+description: SiK telemetry radio on a Windows COM port via pymavlink. No ROS.
+# To keep Mission Planner connected at the same time, run mavlink-router (or MAVProxy with
+# --out) on the radio and point this profile at one of its UDP outputs instead of the COM port:
+#   url: udpin:0.0.0.0:14551
+source:
+  type: mavlink
+  url: COM3
+  baud: 57600
+  # Stream rates over SiK are limited by bandwidth; keep requests modest.
+  stream_rate_hz: 4
+service:
+  host: 127.0.0.1
+  port: 8700

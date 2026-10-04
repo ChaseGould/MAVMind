@@ -1,0 +1,10 @@
+name: replay
+description: Replay a recorded .tlog (read-only). Deterministic, no hardware.
+source:
+  type: replay
+  path: tests/tlogs/battery_failsafe.tlog
+  speed: 1.0
+  loop: true
+service:
+  host: 127.0.0.1
+  port: 8700

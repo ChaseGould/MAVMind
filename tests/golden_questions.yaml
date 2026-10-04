@@ -1,0 +1,62 @@
+# Golden questions for tests/tlogs/battery_failsafe.tlog, asked after the whole log has been replayed.
+# Each `must` entry is a list of alternatives; the answer must match at least one (case-insensitive
+# regex) from every entry. `tools` lists tools the agent is expected to call (any order).
+# Facts come from tests/tlogs/battery_failsafe.expected.json.
+tlog: tests/tlogs/battery_failsafe.tlog
+questions:
+  - id: why_rtl
+    question: Why did the vehicle switch to RTL?
+    must:
+      - ["battery"]
+      - ['10\.48', '10\.5']
+      - ["failsafe"]
+      - ["BATT_FS_LOW_ACT", "low[- ]battery", "battery (is )?low", "low voltage"]
+    tools: [get_events]
+
+  - id: failsafe_voltage_vs_threshold
+    question: What was the battery voltage when the low-battery warning fired, and what is the configured low-voltage threshold?
+    must:
+      - ['10\.48']
+      - ['10\.5\b', '10\.50']
+
+  - id: mode_and_armed_now
+    question: What flight mode is the vehicle in right now, and is it armed?
+    must:
+      - ["LAND"]
+      - ["disarmed", "not armed"]
+    tools: [get_vehicle_state]
+
+  - id: critical_battery_action
+    question: What will the vehicle do if the battery reaches the critical level?
+    must:
+      - ["land"]
+      - ['BATT_CRT_VOLT|10\.0|BATT_FS_CRT_ACT']
+    tools: [get_params]
+
+  - id: attitude_rate
+    question: At what rate is the ATTITUDE message arriving?
+    must:
+      - ['\b(9\.[5-9]|10(\.0)?)\s?Hz']
+
+  - id: packet_loss
+    question: Is the telemetry link losing packets? Give a number.
+    must:
+      - ['\b(0\.[7-9]\d?|1(\.[0-2]\d?)?)\s?%']
+    tools: [get_link_health]
+
+  - id: flight_duration
+    question: How long was the vehicle armed for on this flight?
+    must:
+      - ['149|2\s?min(ute)?s?\s?(and\s)?29|2:29|2\.5\s?min']
+
+  - id: mission_size
+    question: How many navigation waypoints (NAV_WAYPOINT, excluding home) does the mission on the vehicle have, and how does it end?
+    must:
+      - ['\b6\b|six']
+      - ["RTL", "return to launch", "RETURN_TO_LAUNCH"]
+    tools: [get_mission]
+
+  - id: unanswerable_airspeed_temp
+    question: What is the airspeed sensor's temperature?
+    must:
+      - ["not (available|received|present|reported|streamed|in)", "no airspeed", "isn't", "doesn't", "does not", "cannot", "can't", "unavailable"]

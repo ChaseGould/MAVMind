@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mavmind-agent"
+version = "0.1.0"
+description = "MAVMind agent service: Claude tool-use loop over the vehicle MCP servers"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic>=1.11",
+  "mcp>=2.3,<3",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pyyaml>=6",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+keyring = ["keyring>=25"]
+
+[project.scripts]
+mavmind-agent = "mavmind_agent.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["mavmind_agent*"]
